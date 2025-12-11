@@ -132,12 +132,7 @@ const LoginPage = ({ onLoginSuccess, today, greeting }) => {
                                     </motion.button>
                                 </motion.div>
                             </form>
-                            <motion.p variants={formItemVariants} className="text-center text-xs text-gray-500 dark:text-gray-400">
-                                Don't have an account?{' '}
-                                <a href="#" className="font-medium text-pink-500 hover:text-pink-500">
-                                    Sign up
-                                </a>
-                            </motion.p>
+                           
                         </motion.div>
                     </div>
                 </div>
