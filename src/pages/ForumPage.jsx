@@ -43,15 +43,15 @@ const AllThreadsView = ({ threads, onThreadSelect, onNewThreadClick }) => {
 
 const SingleThreadView = ({ thread, onBack, handleReplySubmit, isAuthenticated, currentUser, onNavClick }) => {
     return (
-       <div className="font-sans pt-16 md:pt-24 bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
-            <div className="container mx-auto px-4 md:px-6 py-6 md:py-12">
+       <div className="font-sans pt-16 md:pt-24 bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6 py-6 md:py-12 max-w-full">
                 <button onClick={onBack} className="text-pink-500 font-semibold hover:text-pink-600 mb-6 md:mb-8 text-sm md:text-base">&larr; Back to Forum</button>
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 rounded-lg transition-colors duration-300">
+                <div className="bg-gray-50 dark:bg-gray-800 p-4 md:p-8 rounded-lg transition-colors duration-300 overflow-hidden">
                     <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-3 break-words">{thread.title}</h1>
                     <div className="text-gray-500 dark:text-gray-400 text-xs md:text-sm mb-4 md:mb-6">
                         <span>By {thread.author}</span> | <span>{thread.date}</span>
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap text-sm md:text-base break-words">{thread.content}</p>
+                    <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap text-sm md:text-base break-words overflow-wrap-anywhere">{thread.content}</p>
                 </div>
                 
                 <CommentSection
