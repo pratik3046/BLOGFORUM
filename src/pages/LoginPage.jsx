@@ -76,7 +76,7 @@ const LoginPage = ({ onLoginSuccess, today, greeting }) => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl font-bold">Welcome Back!</h2>
+                        <h2 className="text-3xl font-bold">Welcome</h2>
                         <p className="mt-2 text-sm opacity-90">Sign in to continue.</p>
                     </motion.div>
                     <div className="p-8 bg-white dark:bg-gray-800 transition-colors duration-300">
