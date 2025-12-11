@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { initialBlogPosts } from '../data/mockData';
+import LazyImage from '../components/LazyImage';
 
 const HomePage = ({ onNavClick }) => {
     const [climberVisible, setClimberVisible] = useState(false);
@@ -22,7 +23,7 @@ const HomePage = ({ onNavClick }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {initialBlogPosts.slice(0, 3).map(post => (
                             <div key={post.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col transition-colors duration-300">
-                                <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
+                                <LazyImage src={post.image} alt={post.title} className="w-full h-56 object-cover" />
                                 <div className="p-6 flex-grow flex flex-col">
                                     <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 hover:text-pink-500 transition-colors cursor-pointer" onClick={() => onNavClick({ page: 'blog', postId: post.id })}>{post.title}</h3>
                                     <p className="text-gray-600 dark:text-gray-300 flex-grow mb-4">{post.excerpt}</p>

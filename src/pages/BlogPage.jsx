@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CommentSection from '../components/CommentSection';
 import { initialBlogPosts } from '../data/mockData';
+import LazyImage from '../components/LazyImage';
 
 const AllPostsView = ({ posts, onPostSelect, onNewPostClick }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +25,7 @@ const AllPostsView = ({ posts, onPostSelect, onNewPostClick }) => {
                     <div className="space-y-16">
                         {currentPosts.map(post => (
                             <div key={post.id} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pb-12 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
-                                <img src={post.image} alt={post.title} className="rounded-2xl shadow-lg w-full h-auto object-cover aspect-video" />
+                                <LazyImage src={post.image} alt={post.title} className="rounded-2xl shadow-lg w-full h-auto object-cover aspect-video" />
                                 <div>
                                     <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">{post.date} by <span className="font-semibold">{post.author}</span></p>
                                     <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4 hover:text-pink-500 transition-colors cursor-pointer" onClick={() => onPostSelect(post.id)}>{post.title}</h2>
@@ -49,14 +50,14 @@ const AllPostsView = ({ posts, onPostSelect, onNewPostClick }) => {
 
 const SinglePostView = ({ post, onBack, handleCommentSubmit, isAuthenticated, currentUser, onNavClick }) => {
     return (
-        <div className="font-sans pt-24 bg-white dark:bg-gray-900 transition-colors duration-300">
-            <div className="container mx-auto px-6 py-12">
-                <button onClick={onBack} className="text-pink-500 font-semibold hover:text-pink-600 mb-8">&larr; Back to Blog</button>
+        <div className="font-sans pt-16 md:pt-24 bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
+            <div className="container mx-auto px-4 md:px-6 py-6 md:py-12">
+                <button onClick={onBack} className="text-pink-500 font-semibold hover:text-pink-600 mb-6 md:mb-8 text-sm md:text-base">&larr; Back to Blog</button>
                 <div className="max-w-4xl mx-auto">
-                    <img src={post.image} alt={post.title} className="rounded-2xl shadow-lg w-full h-auto object-cover aspect-[16/9] mb-8" />
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">{post.title}</h1>
-                    <div className="text-gray-500 dark:text-gray-400 text-sm mb-8"><span>By {post.author}</span> | <span>{post.date}</span></div>
-                    <div className="prose lg:prose-xl max-w-none text-gray-700 dark:text-gray-300">
+                    <LazyImage src={post.image} alt={post.title} className="rounded-lg md:rounded-2xl shadow-lg w-full h-auto object-cover aspect-[16/9] mb-6 md:mb-8" />
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 md:mb-4 break-words">{post.title}</h1>
+                    <div className="text-gray-500 dark:text-gray-400 text-xs md:text-sm mb-6 md:mb-8"><span>By {post.author}</span> | <span>{post.date}</span></div>
+                    <div className="prose prose-sm md:prose lg:prose-xl max-w-none text-gray-700 dark:text-gray-300">
                         <p>{post.content}</p>
                     </div>
                     <CommentSection comments={post.comments} onCommentSubmit={(commentText) => handleCommentSubmit(post.id, commentText)} isAuthenticated={isAuthenticated} currentUser={currentUser} onNavClick={onNavClick} itemType="blog post"/>

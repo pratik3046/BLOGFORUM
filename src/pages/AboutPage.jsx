@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from '../components/LazyImage';
 
 const AboutPage = () => (
     <div className="font-sans">
@@ -17,7 +18,7 @@ const AboutPage = () => (
                         <p className="text-gray-600 dark:text-gray-300">From the highest peaks to the most remote villages, we believe that every corner of the globe has a story to tell. Join us as we chart new territories and build a community dedicated to the art of travel.</p>
                     </div>
                     <div className="order-1 lg:order-2">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team" className="rounded-2xl shadow-lg w-full h-auto object-cover"/>
+                        <LazyImage src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team" className="rounded-2xl shadow-lg w-full h-auto object-cover"/>
                     </div>
                 </div>
             </div>
